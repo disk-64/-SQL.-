@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS track (
 
 
 CREATE TABLE IF NOT EXISTS collections_tracks (
-	id track int NOT NULL REFERENCES track(id),
+	id_track int NOT NULL REFERENCES track(id),
 	id_collection int NOT NULL REFERENCES collection(id),
 	CONSTRAINT pk_collections_tracks PRIMARY KEY (id_collection, id_track)
 );
