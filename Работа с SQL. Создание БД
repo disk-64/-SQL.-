@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS genre (
 
 CREATE TABLE IF NOT EXISTS artist (
 	id serial PRIMARY KEY,
-	name_(nickname) varchar(40) NOT NULL);
+	name varchar(40) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS collection (
 	id serial PRIMARY KEY,
@@ -19,13 +19,13 @@ CREATE TABLE IF NOT EXISTS collection (
 CREATE TABLE IF NOT EXISTS track (
 	id serial PRIMARY KEY,
 	name varchar(60) NOT NULL,
-	time NOT NULL,
+	time time NOT NULL,
 	id_album int REFERENCES album(id));
 
 
-CREATE TABLE IF NOT EXISTS collections_tracks (
+CREATE TABLE IF NOT EXISTS collection_track (
 	id_track int NOT NULL REFERENCES track(id),
-	id_collection int NOT NULL REFERENCES collection(id),
+	id_collections int NOT NULL REFERENCES collection(id),
 	CONSTRAINT pk_collections_tracks PRIMARY KEY (id_collection, id_track)
 );
 
